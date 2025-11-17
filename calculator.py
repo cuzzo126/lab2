@@ -27,6 +27,58 @@ def main():
     """
     Основная функция программы
     """
+def main():
+    """
+    Основная функция программы с интерактивным меню
+    """
+    print("=" * 40)
+    print("       ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР")
+    print("=" * 40)
+    
+    while True:
+        print("\n" + "=" * 30)
+        print("         ГЛАВНОЕ МЕНЮ")
+        print("=" * 30)
+        print("1. Сложение")
+        print("2. Вычитание")
+        print("3. Умножение")
+        print("4. Деление")
+        print("5. Выход из программы")
+        print("=" * 30)
+        
+        choice = input("Выберите операцию (1-5): ").strip()
+        
+        # Выход из программы
+        if choice == '5':
+            print("\nСпасибо за использование калькулятора! До свидания!")
+            break
+        
+        # Проверка корректности выбора операции
+        if choice not in ['1', '2', '3', '4']:
+            print("Ошибка: выберите операцию от 1 до 5!")
+            continue
+        
+        # Ввод чисел
+        try:
+            num1 = float(input("Введите первое число: "))
+            num2 = float(input("Введите второе число: "))
+        except ValueError:
+            print("Ошибка: пожалуйста, введите корректные числа!")
+            continue
+        
+        # Выполнение операции
+        if choice == '1':
+            result = add(num1, num2)
+            print(f"\nРезультат: {num1} + {num2} = {result}")
+        elif choice == '2':
+            result = subtract(num1, num2)
+            print(f"\nРезультат: {num1} - {num2} = {result}")
+        elif choice == '3':
+            result = multiply(num1, num2)
+            print(f"\nРезультат: {num1} * {num2} = {result}")
+        elif choice == '4':
+            result = divide(num1, num2)
+            print(f"\nРезультат: {num1} / {num2} = {result}")
 def divide(a, b):
     """
     Деление двух чисел
